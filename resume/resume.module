@@ -1,0 +1,10 @@
+<?php
+
+ function resume_theme($existing, $type, $theme, $path) {
+      return [
+        'resume' => [
+          'variables' => ['mge' => NULL],
+        ],
+      ];
+    }
+?>

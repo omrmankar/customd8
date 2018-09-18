@@ -1,0 +1,76 @@
+<?php
+function resume_install() {
+// Use schema API to create database table.
+   drupal_install_schema('resume');
+   
+}
+
+/**
+* Implementation of hook_uninstall().
+*/
+function resume_uninstall() {
+// Remove tables.
+drupal_uninstall_schema('resume');
+}
+
+/**
+ * Implements hook_schema().
+ */
+function resume_schema() {
+
+  $schema = array();
+
+  $schema['resume'] = array(
+    'description' => 'The base table for the Project entity',
+    'fields' => array(
+            'fe_id' => array(
+              'description' => 'Primary key of the Project entity',
+              'type' => 'serial',
+              'unsigned' => TRUE,
+              'not null' => TRUE,
+          ),
+            'candidate_name' => array(
+              'description' => 'candidate_name',
+              'type' => 'varchar',
+              'length' => 255,
+              'not null' => FALSE,
+          ),
+            'candidate_mail'=>array(
+              'description'=>'candidate_mail',
+              'type' => 'varchar',
+              'length' => 255,
+              'not null' => FALSE,
+          ),
+            'candidate_number'=>array(
+              'description'=>'candidate_number',
+              'type' => 'varchar',
+              'length' => 255,
+              'not null' => FALSE,
+          ),
+            'candidate_dob'=>array(
+              'description'=>'candidate_dob',
+              'type' => 'varchar',
+              'length' => 255,
+              'not null' => FALSE,
+          ),
+            'candidate_gender' => array(
+             'description' => 'gender.',
+             'type' => 'varchar',
+             'length' => 255,
+             'not null' => TRUE,
+             'default' => ''
+          ),
+            'candidate_confirmation' => array(
+            'description' => 'candidate_confirmation.',
+            'type' => 'varchar',
+            'length' => 255,
+            'not null' => TRUE,
+            'default' => ''
+          ),
+     ),
+   'primary key' => array('fe_id'),
+);
+  return $schema;
+  
+
+}

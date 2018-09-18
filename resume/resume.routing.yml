@@ -1,0 +1,23 @@
+resume.form:
+ path: '/resume/myform'
+ defaults:
+   _title: 'Application form'
+   _form: '\Drupal\resume\Form\ResumeForm'
+ requirements:
+   _permission: 'access content'
+
+resume.view:
+ path: '/resume/view'
+ defaults:
+   _title: 'Application View'
+   _controller: '\Drupal\resume\Controller\ViewController::view'
+ requirements:
+   _permission: 'access content'
+
+resume.delete:
+ path: '/resume/myform/delete/{id}'
+ defaults:
+   _title: 'DeleteForm'
+   _form: '\Drupal\resume\Form\DeleteForm'
+ requirements:
+   _permission: 'access content'
